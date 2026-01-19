@@ -7,7 +7,7 @@ The goal is to handle the initialization, serialization, and deserialization of 
 
 ## The Command Interpreter
 The console is a tool that allows us to manage application objects. You can:
-* Create new objects (e.g., User, Place, City).
+* Create new objects (e.g., User, Place,gender,  City).
 * Retrieve objects from the JSON storage file.
 * Perform operations (count, show, etc.).
 * Update attributes of existing objects.
@@ -17,3 +17,9 @@ The console is a tool that allows us to manage application objects. You can:
 1. **Interactive Mode**: Run the console by typing:
    ```bash
    $ ./console.py
+### example usage
+(hbnb) create State
+(hbnb) all State
+(hbnb) show User <id>
+(hbnb) destroy Place <id>
+(hbnb) quit
