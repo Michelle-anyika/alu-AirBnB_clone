@@ -1,37 +1,35 @@
 #!/usr/bin/python3
-"""Module demonstrating PEP8-compliant Python code."""
+"""Script to create project folder structure and placeholder Python files."""
 
+import os
 
-class SampleClass:
-    """A simple class to demonstrate clean and compliant code."""
+# Define directories and files
+directories = [
+    "models",
+    "tests",
+    "tests/test_models",
+]
 
-    def __init__(self, name, age):
-        """Initialize the sample class with name and age."""
-        self.name = name
-        self.age = age
+files = {
+    "models": ["user.py", "place.py", "state.py", "city.py",
+               "amenity.py", "review.py", "base_model.py"],
+    "tests/test_models": ["test_user.py", "test_place.py", "test_state.py",
+                          "test_city.py", "test_amenity.py", "test_review.py",
+                          "test_base_model.py"],
+}
 
-    def greet(self):
-        """Return a greeting message."""
-        return f"Hello, my name is {self.name}."
+# Create directories
+for directory in directories:
+    os.makedirs(directory, exist_ok=True)
 
-    def is_adult(self):
-        """Check if the person is an adult."""
-        return self.age >= 18
+# Create placeholder files with PEP8-compliant content
+placeholder_content = '#!/usr/bin/python3\n"""Placeholder file."""\n\n'
 
+for folder, file_list in files.items():
+    for file_name in file_list:
+        file_path = os.path.join(folder, file_name)
+        if not os.path.exists(file_path):
+            with open(file_path, "w") as f:
+                f.write(placeholder_content)
 
-def calculate_sum(a, b):
-    """Return the sum of two numbers."""
-    return a + b
-
-
-def main():
-    """Main function to demonstrate usage."""
-    person = SampleClass("Michelle", 20)
-
-    print(person.greet())
-    print("Is adult:", person.is_adult())
-    print("Sum:", calculate_sum(5, 3))
-
-
-if __name__ == "__main__":
-    main()
+print("Project structure created successfully!")
